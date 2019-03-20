@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace AvtoDev\EventsLogLaravel;
 
+use AvtoDev\EventsLogLaravel\Contracts\EventsSubscriberContract;
+use AvtoDev\EventsLogLaravel\Listeners\EventsSubscriber;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Log\LogManager;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Foundation\Application;
-use AvtoDev\EventsLogLaravel\Listeners\EventsSubscriber;
-use AvtoDev\EventsLogLaravel\Contracts\EventsSubscriberContract;
 
+/**
+ * Class EventsLogServiceProvider
+ * @package AvtoDev\EventsLogLaravel
+ */
 class EventsLogServiceProvider extends ServiceProvider
 {
     /**
@@ -27,9 +31,9 @@ class EventsLogServiceProvider extends ServiceProvider
     /**
      * Bootstrap events subscriber.
      *
-     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    public function boot()
+    public function boot(): void
     {
         $this->app->make('events')->subscribe($this->app->make(EventsSubscriberContract::class));
     }
@@ -42,7 +46,7 @@ class EventsLogServiceProvider extends ServiceProvider
     protected function registerChannel(): void
     {
         $this->app->bind('log.events.channel', function (Application $app) {
-            return $app->make('config')->get('logging.events_channel', env('EVENTS_LOG_CHANNEL'));
+            return $app->make('config')->get('logging.events_channel', env('EVENTS_LOG_CHANNEL', 'default'));
         });
     }
 

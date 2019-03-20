@@ -4,6 +4,10 @@ namespace AvtoDev\EventsLogLaravel\Contracts;
 
 use Monolog\Logger;
 
+/**
+ * Interface LoggerContract
+ * @package AvtoDev\EventsLogLaravel\Contracts
+ */
 interface LoggerContract
 {
     /**

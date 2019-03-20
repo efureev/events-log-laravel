@@ -2,9 +2,13 @@
 
 namespace AvtoDev\EventsLogLaravel\Tests\Bootstrap;
 
-use AvtoDev\DevTools\Tests\PHPUnit\Traits\CreatesApplicationTrait;
 use AvtoDev\DevTools\Tests\Bootstrap\AbstractLaravelTestsBootstrapper;
+use AvtoDev\DevTools\Tests\PHPUnit\Traits\CreatesApplicationTrait;
 
+/**
+ * Class TestsBootstrapper
+ * @package AvtoDev\EventsLogLaravel\Tests\Bootstrap
+ */
 class TestsBootstrapper extends AbstractLaravelTestsBootstrapper
 {
     use CreatesApplicationTrait;
@@ -14,7 +18,7 @@ class TestsBootstrapper extends AbstractLaravelTestsBootstrapper
      *
      * @return string
      */
-    public static function getStorageDirectoryPath()
+    public static function getStorageDirectoryPath(): string
     {
         return __DIR__ . '/../temp/storage';
     }
@@ -24,7 +28,7 @@ class TestsBootstrapper extends AbstractLaravelTestsBootstrapper
      *
      * @return bool
      */
-    protected function bootPrepareStorageDirectory()
+    protected function bootPrepareStorageDirectory(): bool
     {
         $this->log('Prepare storage directory');
 

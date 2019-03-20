@@ -6,6 +6,10 @@ namespace AvtoDev\EventsLogLaravel\Events;
 
 use AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
 
+/**
+ * Class AbstractLoggableEvent
+ * @package AvtoDev\EventsLogLaravel\Events
+ */
 abstract class AbstractLoggableEvent implements ShouldBeLoggedContract
 {
     /**

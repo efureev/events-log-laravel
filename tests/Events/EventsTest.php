@@ -2,10 +2,14 @@
 
 namespace AvtoDev\EventsLogLaravel\Tests\Events;
 
-use AvtoDev\EventsLogLaravel\Tests\AbstractTestCase;
-use AvtoDev\EventsLogLaravel\Events\AbstractLoggableEvent;
 use AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
+use AvtoDev\EventsLogLaravel\Events\AbstractLoggableEvent;
+use AvtoDev\EventsLogLaravel\Tests\AbstractTestCase;
 
+/**
+ * Class EventsTest
+ * @package AvtoDev\EventsLogLaravel\Tests\Events
+ */
 class EventsTest extends AbstractTestCase
 {
     /**
@@ -15,7 +19,8 @@ class EventsTest extends AbstractTestCase
      */
     public function testEvents(): void
     {
-        $instance = new class extends AbstractLoggableEvent {
+        $instance = new class extends AbstractLoggableEvent
+        {
             /**
              * {@inheritdoc}
              */
@@ -25,11 +30,11 @@ class EventsTest extends AbstractTestCase
             }
         };
 
-        $this->assertInstanceOf(ShouldBeLoggedContract::class, $instance);
+        static::assertInstanceOf(ShouldBeLoggedContract::class, $instance);
 
-        $this->assertStringsEquals('info', $instance->logLevel(), false);
-        $this->assertEmptyArray($instance->logEventExtraData());
-        $this->assertStringsEquals('UNKNOWN', $instance->eventType(), false);
-        $this->assertStringsEquals('UNKNOWN', $instance->eventSource(), false);
+        static::assertStringsEquals('info', $instance->logLevel(), false);
+        static::assertEmptyArray($instance->logEventExtraData());
+        static::assertStringsEquals('UNKNOWN', $instance->eventType(), false);
+        static::assertStringsEquals('UNKNOWN', $instance->eventSource(), false);
     }
 }

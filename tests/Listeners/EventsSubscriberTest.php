@@ -2,19 +2,22 @@
 
 namespace AvtoDev\EventsLogLaravel\Tests\Listeners;
 
-use Illuminate\Support\Str;
-use Psr\Log\LoggerInterface;
-use Illuminate\Log\LogManager;
+use AvtoDev\EventsLogLaravel\Listeners\EventsSubscriber;
 use AvtoDev\EventsLogLaravel\Tests\AbstractTestCase;
 use Illuminate\Config\Repository as ConfigRepository;
-use AvtoDev\EventsLogLaravel\Listeners\EventsSubscriber;
+use Illuminate\Log\LogManager;
+use Illuminate\Support\Str;
 
+/**
+ * Class EventsSubscriberTest
+ * @package AvtoDev\EventsLogLaravel\Tests\Listeners
+ */
 class EventsSubscriberTest extends AbstractTestCase
 {
     /**
      * {@inheritdoc}
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -23,8 +26,8 @@ class EventsSubscriberTest extends AbstractTestCase
 
         $config->set('logging.channels.test_events_channel', [
             'driver' => 'single',
-            'path'   => storage_path('logs/events.log'),
-            'level'  => 'debug',
+            'path' => storage_path('logs/events.log'),
+            'level' => 'debug',
         ]);
 
         $this->clearLaravelLogs();
@@ -41,20 +44,19 @@ class EventsSubscriberTest extends AbstractTestCase
     /**
      * Test constructor without passing log channel name.
      *
-     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function testConstructWithoutChannelName(): void
     {
-        $subscriber = new EventsSubscriber($this->app->make(LogManager::class));
+        new EventsSubscriber($this->app->make(LogManager::class));
 
         $this->assertLogFileNotExists();
-        $this->assertInstanceOf(LoggerInterface::class, $subscriber->logDriver());
     }
 
     /**
      * Test constructor with passing invalid log channel name.
      *
-     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function testConstructWithInvalidChannelName(): void
     {
@@ -70,7 +72,7 @@ class EventsSubscriberTest extends AbstractTestCase
     /**
      * Test constructor with passing valid (default) log channel name.
      *
-     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function testConstructWithValidChannelName(): void
     {
@@ -84,7 +86,8 @@ class EventsSubscriberTest extends AbstractTestCase
     /**
      * Test method, that called an any application events (event with needed interface).
      *
-     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @throws \ReflectionException
      */
     public function testListenOnlyEventsWithInterface(): void
     {
@@ -107,7 +110,8 @@ class EventsSubscriberTest extends AbstractTestCase
     /**
      * Test method, that called an any application events (event without needed interface).
      *
-     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @throws \ReflectionException
      */
     public function testListenOnlyEventsWithoutInterface(): void
     {
@@ -130,7 +134,7 @@ class EventsSubscriberTest extends AbstractTestCase
     /**
      * Test log writing method.
      *
-     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function testWriteEventIntoLog(): void
     {
@@ -156,7 +160,8 @@ class EventsSubscriberTest extends AbstractTestCase
     /**
      * Test throws exception with passing invalid log level keyword.
      *
-     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @throws \ReflectionException
      */
     public function testExceptionThrowsOnLogWritingWithPassingInvalidLogLevel(): void
     {
@@ -164,7 +169,7 @@ class EventsSubscriberTest extends AbstractTestCase
 
         $exceptions_counter = 0;
 
-        foreach (($wrong_levels = ['foo', 'bar']) + ($good_levels = ['Debug', 'INFO', 'emeRgency']) as $level_name) {
+        foreach (array_merge($wrong_levels = ['foo', 'bar'], $good_levels = ['Debug', 'INFO', 'emeRgency']) as $level_name) {
             $mock = $this
                 ->getMockBuilder(Stubs\LoggableEventStub::class)
                 ->getMock();
@@ -172,7 +177,7 @@ class EventsSubscriberTest extends AbstractTestCase
             $mock
                 ->expects($this->once())
                 ->method('logLevel')
-                ->will($this->returnValue($level_name));
+                ->willReturn($level_name);
 
             /* @var Stubs\LoggableEventStub $mock */
             try {
@@ -195,7 +200,7 @@ class EventsSubscriberTest extends AbstractTestCase
     /**
      * Assert logging an event with `skipLogging` method.
      *
-     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function testSkipLoggingTrue(): void
     {
@@ -221,7 +226,7 @@ class EventsSubscriberTest extends AbstractTestCase
     /**
      * Assert logging an event with `skipLogging` method returns false.
      *
-     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function testSkipLoggingFalse(): void
     {

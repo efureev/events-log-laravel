@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace AvtoDev\EventsLogLaravel\Logging\Formatters;
 
+/**
+ * Class DefaultLogstashFormatter
+ * @package AvtoDev\EventsLogLaravel\Logging\Formatters
+ */
 class DefaultLogstashFormatter extends AbstractLogstashFormatter
 {
     /**

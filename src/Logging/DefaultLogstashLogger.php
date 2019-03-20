@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace AvtoDev\EventsLogLaravel\Logging;
 
-use Exception;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-use Monolog\Formatter\LogstashFormatter;
 use AvtoDev\EventsLogLaravel\Contracts\LoggerContract;
 use AvtoDev\EventsLogLaravel\Logging\Formatters\DefaultLogstashFormatter;
+use Exception;
+use Monolog\Formatter\LogstashFormatter;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 
+/**
+ * Class DefaultLogstashLogger
+ * @package AvtoDev\EventsLogLaravel\Logging
+ */
 class DefaultLogstashLogger implements LoggerContract
 {
     /**

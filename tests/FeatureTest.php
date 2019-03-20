@@ -2,9 +2,9 @@
 
 namespace AvtoDev\EventsLogLaravel\Tests;
 
-use Illuminate\Foundation\Application;
-use Illuminate\Config\Repository as ConfigRepository;
 use AvtoDev\EventsLogLaravel\Events\AbstractLoggableEvent;
+use Illuminate\Config\Repository as ConfigRepository;
+use Illuminate\Foundation\Application;
 
 /**
  * @coversNothing
@@ -14,7 +14,7 @@ class FeatureTest extends AbstractTestCase
     /**
      * {@inheritdoc}
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -28,7 +28,8 @@ class FeatureTest extends AbstractTestCase
      */
     public function testWriting(): void
     {
-        $event = new class extends AbstractLoggableEvent {
+        $event = new class extends AbstractLoggableEvent
+        {
             public function logMessage(): string
             {
                 return 'foo message';
@@ -52,27 +53,27 @@ class FeatureTest extends AbstractTestCase
     /**
      * {@inheritdoc}
      */
-    protected function afterApplicationBootstrapped(Application $app)
+    protected function afterApplicationBootstrapped(Application $app): void
     {
         /** @var ConfigRepository $config */
         $config = $app->make('config');
 
         $config->set('logging.channels.' . $channel_name = 'events-stack', [
-            'driver'   => 'stack',
+            'driver' => 'stack',
             'channels' => ['events-monolog', 'events-logstash'],
         ]);
 
         $config->set('logging.channels.events-monolog', [
             'driver' => 'single',
-            'path'   => storage_path('logs/laravel-events.log'),
-            'level'  => 'debug',
+            'path' => storage_path('logs/laravel-events.log'),
+            'level' => 'debug',
         ]);
 
         $config->set('logging.channels.events-logstash', [
             'driver' => 'custom',
-            'via'    => \AvtoDev\EventsLogLaravel\Logging\EventsLogstashLogger::class,
-            'path'   => storage_path('logs/logstash/laravel-events.log'),
-            'level'  => 'debug',
+            'via' => \AvtoDev\EventsLogLaravel\Logging\EventsLogstashLogger::class,
+            'path' => storage_path('logs/logstash/laravel-events.log'),
+            'level' => 'debug',
         ]);
 
         $config->set('logging.events_channel', $channel_name);

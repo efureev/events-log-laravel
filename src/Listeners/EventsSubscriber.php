@@ -1,15 +1,19 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace AvtoDev\EventsLogLaravel\Listeners;
 
-use Psr\Log\LoggerInterface;
-use Illuminate\Log\LogManager;
-use Illuminate\Contracts\Events\Dispatcher;
-use AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
 use AvtoDev\EventsLogLaravel\Contracts\EventsSubscriberContract;
+use AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
+use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Log\LogManager;
+use Psr\Log\LoggerInterface;
 
+/**
+ * Class EventsSubscriber
+ * @package AvtoDev\EventsLogLaravel\Listeners
+ */
 class EventsSubscriber implements EventsSubscriberContract
 {
     /**
@@ -27,13 +31,13 @@ class EventsSubscriber implements EventsSubscriberContract
     /**
      * EventsLoggerSubscriber constructor.
      *
-     * @param LogManager  $log_manager
+     * @param LogManager $log_manager
      * @param string|null $logger_channel_name
      */
     public function __construct(LogManager $log_manager, ?string $logger_channel_name = null)
     {
         $this->logger_channel_name = $logger_channel_name;
-        $this->log_driver          = $log_manager->driver($this->logger_channel_name);
+        $this->log_driver = $log_manager->driver($this->logger_channel_name);
     }
 
     /**
@@ -41,7 +45,7 @@ class EventsSubscriber implements EventsSubscriberContract
      *
      * @return LoggerInterface
      */
-    public function logDriver()
+    public function logDriver(): LoggerInterface
     {
         return $this->log_driver;
     }
@@ -50,11 +54,11 @@ class EventsSubscriber implements EventsSubscriberContract
      * All events listener.
      *
      * @param mixed|string $event
-     * @param array        $event_data
+     * @param array $event_data
      *
      * @return void
      */
-    public function onAnyEvents($event, array $event_data)
+    public function onAnyEvents($event, array $event_data): void
     {
         $event_name = \is_string($event)
             ? $event
@@ -75,17 +79,17 @@ class EventsSubscriber implements EventsSubscriberContract
      * Write event into log file.
      *
      * @param ShouldBeLoggedContract $event
-     * @param string|null            $event_name
+     * @param string|null $event_name
      *
      * @return void
      */
-    public function writeEventIntoLog(ShouldBeLoggedContract $event, $event_name = null)
+    public function writeEventIntoLog(ShouldBeLoggedContract $event, $event_name = null): void
     {
         $this->log_driver->log($event->logLevel(), $event->logMessage(), [
             'event' => \array_replace_recursive([
                 'source' => $event->eventSource(),
-                'type'   => $event->eventType(),
-                'name'   => $event_name,
+                'type' => $event->eventType(),
+                'name' => $event_name,
             ], $event->logEventExtraData()),
         ]);
     }
@@ -93,7 +97,7 @@ class EventsSubscriber implements EventsSubscriberContract
     /**
      * {@inheritdoc}
      */
-    public function subscribe(Dispatcher $events)
+    public function subscribe(Dispatcher $events): void
     {
         $events->listen('*', [$this, 'onAnyEvents']);
     }

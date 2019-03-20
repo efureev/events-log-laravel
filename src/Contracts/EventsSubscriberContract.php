@@ -4,6 +4,10 @@ namespace AvtoDev\EventsLogLaravel\Contracts;
 
 use Illuminate\Contracts\Events\Dispatcher;
 
+/**
+ * Interface EventsSubscriberContract
+ * @package AvtoDev\EventsLogLaravel\Contracts
+ */
 interface EventsSubscriberContract
 {
     /**
@@ -13,5 +17,5 @@ interface EventsSubscriberContract
      *
      * @return void
      */
-    public function subscribe(Dispatcher $events);
+    public function subscribe(Dispatcher $events): void;
 }

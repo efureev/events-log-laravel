@@ -2,17 +2,21 @@
 
 namespace AvtoDev\EventsLogLaravel\Tests;
 
-use Illuminate\Foundation\Application;
-use AvtoDev\EventsLogLaravel\EventsLogServiceProvider;
 use AvtoDev\DevTools\Tests\PHPUnit\AbstractLaravelTestCase;
+use AvtoDev\EventsLogLaravel\EventsLogServiceProvider;
 use AvtoDev\EventsLogLaravel\Tests\Bootstrap\TestsBootstrapper;
+use Illuminate\Foundation\Application;
 
+/**
+ * Class AbstractTestCase
+ * @package AvtoDev\EventsLogLaravel\Tests
+ */
 class AbstractTestCase extends AbstractLaravelTestCase
 {
     /**
      * {@inheritdoc}
      */
-    protected function beforeApplicationBootstrapped(Application $app)
+    protected function beforeApplicationBootstrapped(Application $app): void
     {
         $app->useStoragePath(TestsBootstrapper::getStorageDirectoryPath());
     }
@@ -20,7 +24,7 @@ class AbstractTestCase extends AbstractLaravelTestCase
     /**
      * {@inheritdoc}
      */
-    protected function afterApplicationBootstrapped(Application $app)
+    protected function afterApplicationBootstrapped(Application $app): void
     {
         putenv('EVENTS_LOG_CHANNEL=default');
 

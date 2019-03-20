@@ -1,9 +1,13 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace AvtoDev\EventsLogLaravel\Contracts;
 
+/**
+ * Interface ShouldBeLoggedContract
+ * @package AvtoDev\EventsLogLaravel\Contracts
+ */
 interface ShouldBeLoggedContract
 {
     /**

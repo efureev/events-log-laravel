@@ -2,11 +2,15 @@
 
 namespace AvtoDev\EventsLogLaravel\Tests\Contracts;
 
-use AvtoDev\EventsLogLaravel\Tests\AbstractTestCase;
+use AvtoDev\EventsLogLaravel\Contracts\EventsSubscriberContract;
 use AvtoDev\EventsLogLaravel\Contracts\LoggerContract;
 use AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
-use AvtoDev\EventsLogLaravel\Contracts\EventsSubscriberContract;
+use AvtoDev\EventsLogLaravel\Tests\AbstractTestCase;
 
+/**
+ * Class ContractsTest
+ * @package AvtoDev\EventsLogLaravel\Tests\Contracts
+ */
 class ContractsTest extends AbstractTestCase
 {
     /**
@@ -23,7 +27,7 @@ class ContractsTest extends AbstractTestCase
         ];
 
         foreach ($classes as $class_name) {
-            $this->assertTrue(interface_exists($class_name));
+            static::assertTrue(interface_exists($class_name));
         }
     }
 }

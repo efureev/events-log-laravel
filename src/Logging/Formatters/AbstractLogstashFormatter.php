@@ -6,6 +6,10 @@ namespace AvtoDev\EventsLogLaravel\Logging\Formatters;
 
 use Monolog\Formatter\LogstashFormatter;
 
+/**
+ * Class AbstractLogstashFormatter
+ * @package AvtoDev\EventsLogLaravel\Logging\Formatters
+ */
 abstract class AbstractLogstashFormatter extends LogstashFormatter
 {
     /**
@@ -15,7 +19,7 @@ abstract class AbstractLogstashFormatter extends LogstashFormatter
      *
      * @return array Message
      */
-    protected function formatV0(array $record)
+    protected function formatV0(array $record): array
     {
         return $this->modifyParentMessage(parent::formatV0($record), $record);
     }
@@ -27,7 +31,7 @@ abstract class AbstractLogstashFormatter extends LogstashFormatter
      *
      * @return array Message
      */
-    protected function formatV1(array $record)
+    protected function formatV1(array $record): array
     {
         return $this->modifyParentMessage(parent::formatV1($record), $record);
     }
