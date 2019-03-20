@@ -4,33 +4,27 @@
 
 # Логгирование событий в Laravel-приложениях
 
-[![Version][badge_packagist_version]][link_packagist]
-[![Version][badge_php_version]][link_packagist]
 [![Build Status][badge_build_status]][link_build_status]
-[![Coverage][badge_coverage]][link_coverage]
-[![Code quality][badge_code_quality]][link_code_quality]
-[![Downloads count][badge_downloads_count]][link_packagist]
+[![codecov](https://codecov.io/gh/efureev/events-log-laravel/branch/master/graph/badge.svg)](https://codecov.io/gh/efureev/events-log-laravel)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a58a0544a7a756f8731c/test_coverage)](https://codeclimate.com/github/efureev/events-log-laravel/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a58a0544a7a756f8731c/maintainability)](https://codeclimate.com/github/efureev/events-log-laravel/maintainability)
 [![License][badge_license]][link_license]
 
 Данный пакет позволяет удобно использовать в вашем Laravel приложении функционал логгирования событий, которые реализуют определенный интерфейс.
 
 ## Install
 
-Require this package with composer using the following command (`laravel/framework` version 5.6 and above is required):
+Require this package with composer using the following command (`laravel/framework` version 5.8 and above is required):
 
 ```shell
-$ composer require avto-dev/events-log-laravel "^1.2"
+$ composer require feugene/events-log-laravel "^2.0"
 ```
 
 > Installed `composer` is required ([how to install composer][getcomposer]).
 
 > You need to fix the major version of package.
 
-Сервис-провайдер будет зарегистрирован автоматически. В противном случае выполните:
-
-```shell
-$ php artisan package:discover
-```
+Сервис-провайдер будет зарегистрирован автоматически.
 
 ## Настройка
 
@@ -41,9 +35,9 @@ $ php artisan package:discover
 
 return [
     // ...
-    
+
     'events_channel' => env('EVENTS_LOG_CHANNEL', 'stack'),
-    
+
     // ...
 ];
 ```
@@ -64,7 +58,7 @@ return [
     // ...    
 
     'channels' => [
-    
+
         // ...
 
         'events-stack' => [
@@ -156,7 +150,7 @@ event(new SomeApplicationEvent);
 
 И быть уверенным в том, что данное событие будет записано в лог-файл. О том, как работают события (events) в Laravel вы можете прочитать по [этой ссылке][laravel_events].
 
-### Условния логирования
+### Условия логирования
 
 В некоторых случаях необходимо добавить условия логгирования события. Для этого вы можете реализовать в классе события метод `skipLogging`:
 
@@ -173,7 +167,7 @@ class YourEvent implements \AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedCon
     {
         return $this->value > 100;
     }
-    
+
     // ...
 }
 ```
@@ -194,7 +188,7 @@ class YourEvent implements \AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedCon
 For package testing we use `phpunit` framework. Just write into your terminal:
 
 ```shell
-$ git clone git@github.com:avto-dev/events-log-laravel.git ./events-log-laravel && cd $_
+$ git clone git@github.com:efureev/events-log-laravel.git ./events-log-laravel && cd $_
 $ composer install
 $ composer test
 ```
@@ -217,28 +211,17 @@ If you will find any package errors, please, [make an issue][link_create_issue] 
 
 This is open-sourced software licensed under the [MIT License][link_license].
 
-[badge_packagist_version]:https://img.shields.io/packagist/v/avto-dev/events-log-laravel.svg?maxAge=180
-[badge_php_version]:https://img.shields.io/packagist/php-v/avto-dev/events-log-laravel.svg?longCache=true
-[badge_build_status]:https://travis-ci.org/avto-dev/events-log-laravel.svg?branch=master
-[badge_code_quality]:https://img.shields.io/scrutinizer/g/avto-dev/events-log-laravel.svg?maxAge=180
-[badge_coverage]:https://img.shields.io/codecov/c/github/avto-dev/events-log-laravel/master.svg?maxAge=60
-[badge_downloads_count]:https://img.shields.io/packagist/dt/avto-dev/events-log-laravel.svg?maxAge=180
-[badge_license]:https://img.shields.io/packagist/l/avto-dev/events-log-laravel.svg?longCache=true
-[badge_release_date]:https://img.shields.io/github/release-date/avto-dev/events-log-laravel.svg?style=flat-square&maxAge=180
-[badge_commits_since_release]:https://img.shields.io/github/commits-since/avto-dev/events-log-laravel/latest.svg?style=flat-square&maxAge=180
-[badge_issues]:https://img.shields.io/github/issues/avto-dev/events-log-laravel.svg?style=flat-square&maxAge=180
-[badge_pulls]:https://img.shields.io/github/issues-pr/avto-dev/events-log-laravel.svg?style=flat-square&maxAge=180
-[link_releases]:https://github.com/avto-dev/events-log-laravel/releases
-[link_packagist]:https://packagist.org/packages/avto-dev/events-log-laravel
-[link_build_status]:https://travis-ci.org/avto-dev/events-log-laravel
-[link_coverage]:https://codecov.io/gh/avto-dev/events-log-laravel/
-[link_changes_log]:https://github.com/avto-dev/events-log-laravel/blob/master/CHANGELOG.md
-[link_code_quality]:https://scrutinizer-ci.com/g/avto-dev/events-log-laravel/
-[link_issues]:https://github.com/avto-dev/events-log-laravel/issues
-[link_create_issue]:https://github.com/avto-dev/events-log-laravel/issues/new/choose
-[link_commits]:https://github.com/avto-dev/events-log-laravel/commits
-[link_pulls]:https://github.com/avto-dev/events-log-laravel/pulls
-[link_license]:https://github.com/avto-dev/events-log-laravel/blob/master/LICENSE
-[laravel_logging]:https://laravel.com/docs/5.6/logging
-[laravel_events]:https://laravel.com/docs/5.6/events
+[badge_build_status]:https://travis-ci.org/efureev/events-log-laravel.svg?branch=master
+[link_releases]:https://github.com/efureev/events-log-laravel/releases
+[link_packagist]:https://packagist.org/packages/feugene/events-log-laravel
+[link_build_status]:https://travis-ci.org/efureev/events-log-laravel
+[link_coverage]:https://codecov.io/gh/efureev/events-log-laravel/
+[link_changes_log]:https://github.com/efureev/events-log-laravel/blob/master/CHANGELOG.md
+[link_issues]:https://github.com/efureev/events-log-laravel/issues
+[link_create_issue]:https://github.com/efureev/events-log-laravel/issues/new/choose
+[link_commits]:https://github.com/efureev/events-log-laravel/commits
+[link_pulls]:https://github.com/efureev/events-log-laravel/pulls
+[link_license]:https://github.com/efureev/events-log-laravel/blob/master/LICENSE
+[laravel_logging]:https://laravel.com/docs/5.8/logging
+[laravel_events]:https://laravel.com/docs/5.8/events
 [getcomposer]:https://getcomposer.org/download/
