@@ -65,9 +65,7 @@ class EventsSubscriber implements EventsSubscriberContract
             : null;
 
         foreach ($event_data as $event_datum) {
-            if (
-                \is_object($event_datum)
-                && $event_datum instanceof ShouldBeLoggedContract
+            if ($event_datum instanceof ShouldBeLoggedContract
                 && $this->skipEventLogging($event_datum) === false
             ) {
                 $this->writeEventIntoLog($event_datum, $event_name);
