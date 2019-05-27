@@ -1,6 +1,6 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Tests\Listeners\Stubs;
+namespace Feugene\EventsLogLaravel\Tests\Listeners\Stubs;
 
 class NotLoggableEventStub
 {

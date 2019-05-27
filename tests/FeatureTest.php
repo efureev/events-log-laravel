@@ -1,8 +1,8 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Tests;
+namespace Feugene\EventsLogLaravel\Tests;
 
-use AvtoDev\EventsLogLaravel\Events\AbstractLoggableEvent;
+use Feugene\EventsLogLaravel\Events\AbstractLoggableEvent;
 use Illuminate\Config\Repository as ConfigRepository;
 use Illuminate\Foundation\Application;
 
@@ -71,7 +71,7 @@ class FeatureTest extends AbstractTestCase
 
         $config->set('logging.channels.events-logstash', [
             'driver' => 'custom',
-            'via' => \AvtoDev\EventsLogLaravel\Logging\EventsLogstashLogger::class,
+            'via' => \Feugene\EventsLogLaravel\Logging\EventsLogstashLogger::class,
             'path' => storage_path('logs/logstash/laravel-events.log'),
             'level' => 'debug',
         ]);

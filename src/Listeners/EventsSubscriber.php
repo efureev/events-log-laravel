@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace AvtoDev\EventsLogLaravel\Listeners;
+namespace Feugene\EventsLogLaravel\Listeners;
 
-use AvtoDev\EventsLogLaravel\Contracts\EventsSubscriberContract;
-use AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
+use Feugene\EventsLogLaravel\Contracts\EventsSubscriberContract;
+use Feugene\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Log\LogManager;
 use Psr\Log\LoggerInterface;
 
 /**
  * Class EventsSubscriber
- * @package AvtoDev\EventsLogLaravel\Listeners
+ * @package Feugene\EventsLogLaravel\Listeners
  */
 class EventsSubscriber implements EventsSubscriberContract
 {
@@ -66,7 +66,7 @@ class EventsSubscriber implements EventsSubscriberContract
 
         foreach ($event_data as $event_datum) {
             if ($event_datum instanceof ShouldBeLoggedContract
-                && $this->skipEventLogging($event_datum) === false
+                && !$this->skipEventLogging($event_datum)
             ) {
                 $this->writeEventIntoLog($event_datum, $event_name);
             }
@@ -86,6 +86,7 @@ class EventsSubscriber implements EventsSubscriberContract
         $this->log_driver->log($event->logLevel(), $event->logMessage(), [
             'event' => \array_replace_recursive([
                 'source' => $event->eventSource(),
+                'tags' => $event->eventTags(),
                 'type' => $event->eventType(),
                 'name' => $event_name,
             ], $event->logEventExtraData()),
@@ -93,7 +94,7 @@ class EventsSubscriber implements EventsSubscriberContract
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function subscribe(Dispatcher $events): void
     {

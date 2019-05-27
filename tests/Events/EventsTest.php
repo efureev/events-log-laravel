@@ -1,14 +1,14 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Tests\Events;
+namespace Feugene\EventsLogLaravel\Tests\Events;
 
-use AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
-use AvtoDev\EventsLogLaravel\Events\AbstractLoggableEvent;
-use AvtoDev\EventsLogLaravel\Tests\AbstractTestCase;
+use Feugene\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
+use Feugene\EventsLogLaravel\Events\AbstractLoggableEvent;
+use Feugene\EventsLogLaravel\Tests\AbstractTestCase;
 
 /**
  * Class EventsTest
- * @package AvtoDev\EventsLogLaravel\Tests\Events
+ * @package Feugene\EventsLogLaravel\Tests\Events
  */
 class EventsTest extends AbstractTestCase
 {
@@ -36,5 +36,6 @@ class EventsTest extends AbstractTestCase
         static::assertEmptyArray($instance->logEventExtraData());
         static::assertStringsEquals('UNKNOWN', $instance->eventType(), false);
         static::assertStringsEquals('UNKNOWN', $instance->eventSource(), false);
+        static::assertEquals([], $instance->eventTags());
     }
 }

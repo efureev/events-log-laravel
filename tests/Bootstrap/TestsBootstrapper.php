@@ -1,13 +1,13 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Tests\Bootstrap;
+namespace Feugene\EventsLogLaravel\Tests\Bootstrap;
 
-use AvtoDev\DevTools\Tests\Bootstrap\AbstractLaravelTestsBootstrapper;
-use AvtoDev\DevTools\Tests\PHPUnit\Traits\CreatesApplicationTrait;
+use Feugene\DevTools\Tests\Bootstrap\AbstractLaravelTestsBootstrapper;
+use Feugene\DevTools\Tests\PHPUnit\Traits\CreatesApplicationTrait;
 
 /**
  * Class TestsBootstrapper
- * @package AvtoDev\EventsLogLaravel\Tests\Bootstrap
+ * @package Feugene\EventsLogLaravel\Tests\Bootstrap
  */
 class TestsBootstrapper extends AbstractLaravelTestsBootstrapper
 {

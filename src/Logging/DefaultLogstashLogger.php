@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace AvtoDev\EventsLogLaravel\Logging;
+namespace Feugene\EventsLogLaravel\Logging;
 
-use AvtoDev\EventsLogLaravel\Contracts\LoggerContract;
-use AvtoDev\EventsLogLaravel\Logging\Formatters\DefaultLogstashFormatter;
+use Feugene\EventsLogLaravel\Contracts\LoggerContract;
+use Feugene\EventsLogLaravel\Logging\Formatters\DefaultLogstashFormatter;
 use Exception;
 use Monolog\Formatter\LogstashFormatter;
 use Monolog\Handler\StreamHandler;
@@ -13,12 +13,12 @@ use Monolog\Logger;
 
 /**
  * Class DefaultLogstashLogger
- * @package AvtoDev\EventsLogLaravel\Logging
+ * @package Feugene\EventsLogLaravel\Logging
  */
 class DefaultLogstashLogger implements LoggerContract
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws Exception
      */

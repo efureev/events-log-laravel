@@ -1,9 +1,9 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Tests\Logging\Formatters;
+namespace Feugene\EventsLogLaravel\Tests\Logging\Formatters;
 
 use Monolog\Formatter\LogstashFormatter;
-use AvtoDev\EventsLogLaravel\Logging\Formatters\DefaultLogstashFormatter;
+use Feugene\EventsLogLaravel\Logging\Formatters\DefaultLogstashFormatter;
 
 /**
  * @group logging

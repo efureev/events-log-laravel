@@ -1,13 +1,13 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Tests;
+namespace Feugene\EventsLogLaravel\Tests;
 
-use AvtoDev\EventsLogLaravel\Contracts\EventsSubscriberContract;
-use AvtoDev\EventsLogLaravel\Listeners\EventsSubscriber;
+use Feugene\EventsLogLaravel\Contracts\EventsSubscriberContract;
+use Feugene\EventsLogLaravel\Listeners\EventsSubscriber;
 
 /**
  * Class EventsLogServiceProviderTest
- * @package AvtoDev\EventsLogLaravel\Tests
+ * @package Feugene\EventsLogLaravel\Tests
  */
 class EventsLogServiceProviderTest extends AbstractTestCase
 {

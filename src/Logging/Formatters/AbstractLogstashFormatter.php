@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace AvtoDev\EventsLogLaravel\Logging\Formatters;
+namespace Feugene\EventsLogLaravel\Logging\Formatters;
 
 use Monolog\Formatter\LogstashFormatter;
 
 /**
  * Class AbstractLogstashFormatter
- * @package AvtoDev\EventsLogLaravel\Logging\Formatters
+ * @package Feugene\EventsLogLaravel\Logging\Formatters
  */
 abstract class AbstractLogstashFormatter extends LogstashFormatter
 {

@@ -1,15 +1,15 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Tests;
+namespace Feugene\EventsLogLaravel\Tests;
 
-use AvtoDev\DevTools\Tests\PHPUnit\AbstractLaravelTestCase;
-use AvtoDev\EventsLogLaravel\EventsLogServiceProvider;
-use AvtoDev\EventsLogLaravel\Tests\Bootstrap\TestsBootstrapper;
+use Feugene\DevTools\Tests\PHPUnit\AbstractLaravelTestCase;
+use Feugene\EventsLogLaravel\EventsLogServiceProvider;
+use Feugene\EventsLogLaravel\Tests\Bootstrap\TestsBootstrapper;
 use Illuminate\Foundation\Application;
 
 /**
  * Class AbstractTestCase
- * @package AvtoDev\EventsLogLaravel\Tests
+ * @package Feugene\EventsLogLaravel\Tests
  */
 class AbstractTestCase extends AbstractLaravelTestCase
 {

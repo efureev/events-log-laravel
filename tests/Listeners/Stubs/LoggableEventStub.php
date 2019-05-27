@@ -1,13 +1,13 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Tests\Listeners\Stubs;
+namespace Feugene\EventsLogLaravel\Tests\Listeners\Stubs;
 
-use AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
+use Feugene\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
 
 class LoggableEventStub implements ShouldBeLoggedContract
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function logLevel(): string
     {
@@ -15,7 +15,7 @@ class LoggableEventStub implements ShouldBeLoggedContract
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function logMessage(): string
     {
@@ -23,7 +23,7 @@ class LoggableEventStub implements ShouldBeLoggedContract
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function logEventExtraData(): array
     {
@@ -31,7 +31,7 @@ class LoggableEventStub implements ShouldBeLoggedContract
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function eventType(): string
     {
@@ -39,10 +39,18 @@ class LoggableEventStub implements ShouldBeLoggedContract
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function eventSource(): string
     {
         return 'event source';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function eventTags(): array
+    {
+        return ['tag1', 'tag2'];
     }
 }

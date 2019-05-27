@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace AvtoDev\EventsLogLaravel\Contracts;
+namespace Feugene\EventsLogLaravel\Contracts;
 
 /**
  * Interface ShouldBeLoggedContract
- * @package AvtoDev\EventsLogLaravel\Contracts
+ * @package Feugene\EventsLogLaravel\Contracts
  */
 interface ShouldBeLoggedContract
 {
@@ -45,12 +45,18 @@ interface ShouldBeLoggedContract
      */
     public function eventSource(): string;
 
+    /**
+     * Events tags
+     * @return array
+     */
+    public function eventTags(): array;
+
     /*
      * Determine if this event should be skipped.
      *
      * Is not required for implementation.
      *
-     * @see \AvtoDev\EventsLogLaravel\Listeners\EventsSubscriber::skipLoggingConditions()
+     * @see \Feugene\EventsLogLaravel\Listeners\EventsSubscriber::skipLoggingConditions()
      *
      * @return bool
      */

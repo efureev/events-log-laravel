@@ -1,16 +1,16 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Tests\Listeners;
+namespace Feugene\EventsLogLaravel\Tests\Listeners;
 
-use AvtoDev\EventsLogLaravel\Listeners\EventsSubscriber;
-use AvtoDev\EventsLogLaravel\Tests\AbstractTestCase;
+use Feugene\EventsLogLaravel\Listeners\EventsSubscriber;
+use Feugene\EventsLogLaravel\Tests\AbstractTestCase;
 use Illuminate\Config\Repository as ConfigRepository;
 use Illuminate\Log\LogManager;
 use Illuminate\Support\Str;
 
 /**
  * Class EventsSubscriberTest
- * @package AvtoDev\EventsLogLaravel\Tests\Listeners
+ * @package Feugene\EventsLogLaravel\Tests\Listeners
  */
 class EventsSubscriberTest extends AbstractTestCase
 {

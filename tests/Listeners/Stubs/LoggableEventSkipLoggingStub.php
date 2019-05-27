@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace AvtoDev\EventsLogLaravel\Tests\Listeners\Stubs;
+namespace Feugene\EventsLogLaravel\Tests\Listeners\Stubs;
 
 use Illuminate\Support\Str;
 

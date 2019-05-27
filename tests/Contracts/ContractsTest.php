@@ -1,15 +1,15 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Tests\Contracts;
+namespace Feugene\EventsLogLaravel\Tests\Contracts;
 
-use AvtoDev\EventsLogLaravel\Contracts\EventsSubscriberContract;
-use AvtoDev\EventsLogLaravel\Contracts\LoggerContract;
-use AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
-use AvtoDev\EventsLogLaravel\Tests\AbstractTestCase;
+use Feugene\EventsLogLaravel\Contracts\EventsSubscriberContract;
+use Feugene\EventsLogLaravel\Contracts\LoggerContract;
+use Feugene\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
+use Feugene\EventsLogLaravel\Tests\AbstractTestCase;
 
 /**
  * Class ContractsTest
- * @package AvtoDev\EventsLogLaravel\Tests\Contracts
+ * @package Feugene\EventsLogLaravel\Tests\Contracts
  */
 class ContractsTest extends AbstractTestCase
 {

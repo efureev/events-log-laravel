@@ -1,12 +1,12 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Contracts;
+namespace Feugene\EventsLogLaravel\Contracts;
 
 use Monolog\Logger;
 
 /**
  * Interface LoggerContract
- * @package AvtoDev\EventsLogLaravel\Contracts
+ * @package Feugene\EventsLogLaravel\Contracts
  */
 interface LoggerContract
 {

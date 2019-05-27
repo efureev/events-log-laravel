@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace AvtoDev\EventsLogLaravel;
+namespace Feugene\EventsLogLaravel;
 
-use AvtoDev\EventsLogLaravel\Contracts\EventsSubscriberContract;
-use AvtoDev\EventsLogLaravel\Listeners\EventsSubscriber;
+use Feugene\EventsLogLaravel\Contracts\EventsSubscriberContract;
+use Feugene\EventsLogLaravel\Listeners\EventsSubscriber;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Log\LogManager;
 use Illuminate\Support\ServiceProvider;
 
 /**
  * Class EventsLogServiceProvider
- * @package AvtoDev\EventsLogLaravel
+ * @package Feugene\EventsLogLaravel
  */
 class EventsLogServiceProvider extends ServiceProvider
 {

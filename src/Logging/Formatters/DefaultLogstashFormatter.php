@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace AvtoDev\EventsLogLaravel\Logging\Formatters;
+namespace Feugene\EventsLogLaravel\Logging\Formatters;
 
 /**
  * Class DefaultLogstashFormatter
- * @package AvtoDev\EventsLogLaravel\Logging\Formatters
+ * @package Feugene\EventsLogLaravel\Logging\Formatters
  */
 class DefaultLogstashFormatter extends AbstractLogstashFormatter
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     protected function modifyParentMessage(array $parent_message, array $record): array
     {

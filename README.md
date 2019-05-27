@@ -74,7 +74,7 @@ return [
 
         'events-logstash' => [
             'driver' => 'custom',
-            'via'    => AvtoDev\EventsLogLaravel\Logging\EventsLogstashLogger::class,
+            'via'    => Feugene\EventsLogLaravel\Logging\EventsLogstashLogger::class,
             'path'   => storage_path('logs/logstash/laravel-events.log'),
             'level'  => 'debug',
         ],
@@ -98,7 +98,7 @@ return [
 ```php
 <?php
 
-class SomeApplicationEvent implements \AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract
+class SomeApplicationEvent implements \Feugene\EventsLogLaravel\Contracts\ShouldBeLoggedContract
 {
     /**
      * {@inheritdoc}
@@ -139,6 +139,11 @@ class SomeApplicationEvent implements \AvtoDev\EventsLogLaravel\Contracts\Should
     {
         return 'service_name';
     }
+    
+    public function eventTags(): array
+    {
+        return [];
+    }
 }
 ```
 
@@ -156,7 +161,7 @@ event(new SomeApplicationEvent);
 
 ```php
 
-class YourEvent implements \AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract
+class YourEvent implements \Feugene\EventsLogLaravel\Contracts\ShouldBeLoggedContract
 {
     /**
      * Determine if this event should be skipped.
@@ -174,7 +179,7 @@ class YourEvent implements \AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedCon
 
 ### Дополнительные логгеры
 
-Вместе с данным пакетом вам доступны следующие пред-настроенные логгеры `AvtoDev\EventsLogLaravel\Logging\...`:
+Вместе с данным пакетом вам доступны следующие пред-настроенные логгеры `Feugene\EventsLogLaravel\Logging\...`:
 
 Класс логгера | Назначение
 ---------------- | ----------

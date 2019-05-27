@@ -1,12 +1,12 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Contracts;
+namespace Feugene\EventsLogLaravel\Contracts;
 
 use Illuminate\Contracts\Events\Dispatcher;
 
 /**
  * Interface EventsSubscriberContract
- * @package AvtoDev\EventsLogLaravel\Contracts
+ * @package Feugene\EventsLogLaravel\Contracts
  */
 interface EventsSubscriberContract
 {

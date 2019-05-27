@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "AvtoDev\\EventsLogLaravel\\": "src"
+            "Feugene\\EventsLogLaravel\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AvtoDev\\EventsLogLaravel\\Tests\\": "tests"
+            "Feugene\\EventsLogLaravel\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,7 +47,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "AvtoDev\\EventsLogLaravel\\EventsLogServiceProvider"
+                "Feugene\\EventsLogLaravel\\EventsLogServiceProvider"
             ]
         }
     },

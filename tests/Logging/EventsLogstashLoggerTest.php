@@ -1,17 +1,17 @@
 <?php
 
-namespace AvtoDev\EventsLogLaravel\Tests\Logging;
+namespace Feugene\EventsLogLaravel\Tests\Logging;
 
-use AvtoDev\EventsLogLaravel\Logging\EventsLogstashLogger;
-use AvtoDev\EventsLogLaravel\Logging\Formatters\EventsLogstashFormatter;
-use AvtoDev\EventsLogLaravel\Tests\AbstractTestCase;
+use Feugene\EventsLogLaravel\Logging\EventsLogstashLogger;
+use Feugene\EventsLogLaravel\Logging\Formatters\EventsLogstashFormatter;
+use Feugene\EventsLogLaravel\Tests\AbstractTestCase;
 use Monolog\Handler\HandlerInterface;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
 /**
  * Class EventsLogstashLoggerTest
- * @package AvtoDev\EventsLogLaravel\Tests\Logging
+ * @package Feugene\EventsLogLaravel\Tests\Logging
  * @group logging
  */
 class EventsLogstashLoggerTest extends AbstractTestCase

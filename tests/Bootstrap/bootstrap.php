@@ -1,3 +1,3 @@
 <?php
 
-new AvtoDev\EventsLogLaravel\Tests\Bootstrap\TestsBootstrapper;
+new Feugene\EventsLogLaravel\Tests\Bootstrap\TestsBootstrapper;

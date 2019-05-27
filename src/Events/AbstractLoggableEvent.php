@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace AvtoDev\EventsLogLaravel\Events;
+namespace Feugene\EventsLogLaravel\Events;
 
-use AvtoDev\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
+use Feugene\EventsLogLaravel\Contracts\ShouldBeLoggedContract;
 
 /**
  * Class AbstractLoggableEvent
- * @package AvtoDev\EventsLogLaravel\Events
+ * @package Feugene\EventsLogLaravel\Events
  */
 abstract class AbstractLoggableEvent implements ShouldBeLoggedContract
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function logLevel(): string
     {
@@ -21,7 +21,7 @@ abstract class AbstractLoggableEvent implements ShouldBeLoggedContract
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function logEventExtraData(): array
     {
@@ -29,7 +29,7 @@ abstract class AbstractLoggableEvent implements ShouldBeLoggedContract
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function eventType(): string
     {
@@ -37,10 +37,18 @@ abstract class AbstractLoggableEvent implements ShouldBeLoggedContract
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function eventSource(): string
     {
         return 'UNKNOWN';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function eventTags(): array
+    {
+        return [];
     }
 }
