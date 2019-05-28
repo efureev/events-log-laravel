@@ -2,7 +2,7 @@
 
 namespace Feugene\EventsLogLaravel\Tests;
 
-use Feugene\DevTools\Tests\PHPUnit\AbstractLaravelTestCase;
+use AvtoDev\DevTools\Tests\PHPUnit\AbstractLaravelTestCase;
 use Feugene\EventsLogLaravel\EventsLogServiceProvider;
 use Feugene\EventsLogLaravel\Tests\Bootstrap\TestsBootstrapper;
 use Illuminate\Foundation\Application;

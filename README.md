@@ -17,7 +17,7 @@
 Require this package with composer using the following command (`laravel/framework` version 5.8 and above is required):
 
 ```shell
-$ composer require feugene/events-log-laravel "^2.0"
+$ composer require feugene/events-log-laravel "^2.1"
 ```
 
 > Installed `composer` is required ([how to install composer][getcomposer]).
